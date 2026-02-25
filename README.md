@@ -76,9 +76,3 @@ We welcome contributions! To help maintain code quality:
 5. Open a **Pull Request**.
 
 ---
-
-## 📌 About Synapta
-
-**Learn more at [Synapta.net](https://www.synapta.net).**
-
----
