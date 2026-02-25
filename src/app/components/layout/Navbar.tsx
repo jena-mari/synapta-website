@@ -1,54 +1,56 @@
-import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
 
-export default function Navbar() {
-  const location = useLocation();
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Blog", path: "/blog" },
-    { name: "Roadmap", path: "/roadmap" },
-    { name: "Investors", path: "/investors" },
-  ];
+  // Add shadow and blur when user scrolls down
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 w-full z-50 px-6 py-4 flex justify-center">
-      <div className="max-w-7xl w-full flex justify-between items-center px-6 py-3 rounded-full backdrop-blur-md bg-white/40 border border-white/20 shadow-sm">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+    }`}>
+      <div className="container mx-auto px-6 flex items-center justify-between">
         
-        {/* Logo Section */}
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-bold text-xl tracking-tighter text-[#4F39F4]">
-            SYNAPTA
+        {/* Logo Area */}
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-gradient-to-br from-synaptaPurple to-synaptaBlue rounded-lg shadow-lg shadow-synaptaPurple/30" />
+          <span className="text-xl font-bold tracking-tight text-slate-900 uppercase">
+            Synapta
           </span>
-        </Link>
+        </div>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`text-sm font-medium transition-colors hover:text-[#4F39F4] ${
-                location.pathname === link.path ? "text-[#4F39F4]" : "text-slate-600"
-              }`}
+        <div className="hidden md:flex items-center gap-8">
+          {['Home', 'About', 'Blog', 'Roadmap', 'Investors'].map((item) => (
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`}
+              className="text-sm font-semibold text-slate-600 hover:text-synaptaPurple transition-colors"
             >
-              {link.name}
-            </Link>
+              {item}
+            </a>
           ))}
         </div>
 
-        {/* CTA Button */}
-        <motion.button
-          {...({
-            whileHover: { scale: 1.05 },
-            whileTap: { scale: 0.95 },
-            className: "bg-[#7C5CFF] text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg shadow-purple-200 hover:bg-[#6A4DED] transition-all"
-          } as any)}
-        >
-          Get Demo
-        </motion.button>
+        {/* Glowing Action Button */}
+        <button className="relative group">
+          {/* The Glow Effect */}
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-synaptaPurple to-synaptaBlue rounded-full blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
+          
+          <div className="relative px-6 py-2 bg-synaptaPurple text-white rounded-full font-bold text-sm leading-none flex items-center transition-all group-hover:bg-synaptaBlue">
+            Get Demo
+          </div>
+        </button>
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;

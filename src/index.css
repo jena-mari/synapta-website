@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gradient-to-br from-purple-200 via-pink-100 to-blue-200 min-h-screen;
+@layer base {
+  body {
+    @apply bg-white text-slate-900 antialiased overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .bg-glow {
+    @apply absolute -z-10 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20;
+  }
 }

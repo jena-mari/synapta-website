@@ -1,24 +1,19 @@
-import Container from '../../app/components/layout/Container';
-import Button from '../../app/components/ui/Button';
-
-export default function HeroSection() {
+const HeroSection = () => {
   return (
-    <section className="pt-40 pb-32 relative overflow-hidden">
-      <Container className="text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-          From Cheat Code To <br />
-          <span className="bg-gradient-to-r from-synaptaPurple to-synaptaBlue bg-clip-text text-transparent">
-            Learning Amplifier
-          </span>
-        </h1>
-
-        <p className="max-w-2xl mx-auto text-lg text-gray-700 mb-10">
-          Synapta transforms AI from a shortcut into a reinforcement engine —
-          engineered for mastery, not dependency.
-        </p>
-
-        <Button>Get Early Access</Button>
-      </Container>
+    <section className="container mx-auto px-6 pt-32 pb-20 text-center">
+      <h1 className="text-6xl md:text-7xl font-bold tracking-tight text-slate-900">
+        From Cheat Code To <br />
+        <span className="text-synaptaPurple">Learning Amplifier</span>
+      </h1>
+      <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
+        The first end-to-end platform that detects AI integrity issues and validates skills.
+      </p>
+      <div className="mt-10 flex justify-center gap-4">
+        <button className="bg-synaptaPurple text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-synaptaPurple/20">
+          Get Demo
+        </button>
+      </div>
     </section>
   );
-}
+};
+export default HeroSection;
