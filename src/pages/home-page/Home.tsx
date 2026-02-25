@@ -7,9 +7,7 @@ import GradientBackground from '../../app/components/ui/GradientBackground';
 const Home = () => {
   return (
     <div className="relative overflow-hidden">
-      {/* Background blobs stay behind content */}
       <GradientBackground /> 
-      
       <HeroSection />
       <Features />
       <MetricsPage />
@@ -17,3 +15,5 @@ const Home = () => {
     </div>
   );
 };
+
+export default Home; 

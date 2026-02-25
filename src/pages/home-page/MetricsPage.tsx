@@ -1,5 +1,5 @@
 import React from 'react';
-import GlassCard from '@components/ui/GlassCard';
+import GlassCard from '../../app/components/ui/GlassCard';
 import { motion } from 'framer-motion';
 
 const metrics = [

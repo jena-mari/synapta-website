@@ -1,5 +1,5 @@
-import Container from "@components/layout/Container";
-import Button from "@components/ui/Button";
+import Container from '../../app/components/layout/Container';
+import Button from '../../app/components/ui/Button';
 
 export default function HeroSection() {
   return (

@@ -40,9 +40,11 @@ export default function Navbar() {
 
         {/* CTA Button */}
         <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-[#7C5CFF] text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg shadow-purple-200 hover:bg-[#6A4DED] transition-all"
+          {...({
+            whileHover: { scale: 1.05 },
+            whileTap: { scale: 0.95 },
+            className: "bg-[#7C5CFF] text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg shadow-purple-200 hover:bg-[#6A4DED] transition-all"
+          } as any)}
         >
           Get Demo
         </motion.button>

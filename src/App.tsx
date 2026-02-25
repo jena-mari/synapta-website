@@ -1,18 +1,29 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "@pages/Home";
-import Blog from "@pages/Blog";
-import Roadmap from "./pages/Roadmap";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
+// Layout Components
+import Navbar from "@components/layout/Navbar";
+import Footer from "@components/layout/Footer";
+
+// Page Components
+import Home from "@pages/home-page/Home";
+import Blog from "@pages/Blog";
+import Roadmap from "@pages/Roadmap";
+
+export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/roadmap" element={<Roadmap />} />
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/roadmap" element={<Roadmap />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
-
-export default App;

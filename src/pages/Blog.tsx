@@ -1,6 +1,6 @@
-import Navbar from "@components/layout/Navbar";
-import Footer from "@components/layout/Footer";
-import GlassCard from "@components/ui/GlassCard";
+import Navbar from "../app/components/layout/Navbar";
+import Footer from "../app/components/layout/Footer";
+import GlassCard from '../app/components/ui/GlassCard';
 import { Link } from "react-router-dom";
 
 export default function Blog() {
