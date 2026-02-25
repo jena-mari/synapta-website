@@ -6,9 +6,9 @@ import Navbar from "@components/layout/Navbar";
 import Footer from "@components/layout/Footer";
 
 // Page Components
-import Home from "@pages/home-page/Home";
-import Blog from "@pages/Blog";
-import Roadmap from "@pages/Roadmap";
+import Home from "./pages/home-page/Home"; 
+import Blog from "./pages/Blog";
+import Roadmap from "./pages/Roadmap";
 
 export default function App() {
   return (
