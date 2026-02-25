@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Layout Components
+// Layout Components 
 import Navbar from "@components/layout/Navbar";
 import Footer from "@components/layout/Footer";
 
-// Page Components
-import Home from "./pages/home-page/Home"; 
-import Blog from "./pages/Blog";
-import Roadmap from "./pages/Roadmap";
+// Page Components 
+import Home from "@pages/home-page/Home"; 
+import Blog from "@pages/Blog";
+import Roadmap from "@pages/Roadmap";
 
 export default function App() {
   return (

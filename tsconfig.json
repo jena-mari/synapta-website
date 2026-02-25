@@ -10,15 +10,13 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
-    
-
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/app/components/*"],
-      "@pages/*": ["src/app/pages/*"],
-      "@home/*": ["src/app/pages/home-page/*"] 
+      "@pages/*": ["src/pages/*"],
+      "@home/*": ["src/pages/home-page/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "vite.config.ts"]
 }
