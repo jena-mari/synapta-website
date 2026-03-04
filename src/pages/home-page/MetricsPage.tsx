@@ -7,10 +7,11 @@ const MetricsPage = () => {
     <section className="relative w-full bg-transparent pt-4 pb-24 px-4 overflow-visible font-['Urbanist']">
       
       <div className="container max-w-[1200px] mx-auto relative z-10">
-        {/* Header - Reduced mb-16 for tighter vertical flow */}
         <div className="text-center mb-16">
           <h2 className="font-['DentonCondensed'] text-[80px] md:text-[100px] leading-tight text-slate-900 pt-8 font-normal">
-            The <span className="text-[#8e76d9]">Problem</span>
+            The <span className="bg-gradient-to-r from-[#8e76d9] to-[#6366f1] bg-clip-text text-transparent">
+              Problem
+            </span>
           </h2>
           <p className="text-lg md:text-xl text-slate-800 font-semibold mt-1">
             Education is built for the top 10%. <br />
@@ -34,7 +35,7 @@ const MetricsPage = () => {
           />
           <MetricCard 
             stat="86%" 
-            tag="AI Use is a Symptom/n of Outdated Infrastructure"
+            tag="AI Use is a Symptom of Outdated Infrastructure"
             description='"Students use generative AI to survive poor assessment design and outdated delivery systems—often from desperation, not deceit—reducing genuine learning rates."'
             icon={<Sparkles className="w-6 h-6" />}
           />
@@ -59,17 +60,19 @@ const MetricsPage = () => {
 };
 
 const MetricCard = ({ stat, tag, description, icon }: { stat: string, tag: string, description: string, icon: any }) => (
-  <div className="bg-white/70 backdrop-blur-2xl border border-white/80 p-12 rounded-[40px] shadow-[0_30px_60px_rgba(109,77,200,0.05)] relative flex flex-col justify-between h-full group hover:shadow-[0_40px_80px_rgba(109,77,200,0.1)] transition-all">
-    <div className="flex justify-between items-start mb-8">
-      <h3 className="font-['DentonCondensed'] text-[85px] font-normal text-slate-900 leading-none tracking-tighter pt-4">
+  <div className="bg-white/70 backdrop-blur-2xl border border-white/80 p-10 rounded-[40px] shadow-[0_30px_60px_rgba(109,77,200,0.05)] relative flex flex-col justify-between h-full group hover:shadow-[0_40px_80px_rgba(109,77,200,0.1)] transition-all overflow-hidden">
+    <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
+      <h3 className="font-['DentonCondensed'] text-[85px] font-normal text-slate-900 leading-none tracking-tighter">
         {stat}
       </h3>
-      <div className="bg-gradient-to-r from-[#8e76d9] to-[#3c59cf] px-5 py-2 rounded-full text-white text-xs font-bold shadow-md">
+      {/* Constraints added to the Tag Pill */}
+      <div className="bg-gradient-to-r from-[#8e76d9] to-[#3c59cf] px-5 py-2.5 rounded-full text-white text-[10px] uppercase tracking-wider font-bold shadow-md max-w-[200px] text-center leading-tight">
         {tag}
       </div>
     </div>
+    
     <div className="flex items-end justify-between gap-6">
-      <p className="text-slate-600 text-[18px] leading-relaxed font-medium italic pr-12">
+      <p className="text-slate-600 text-[17px] leading-[1.5] font-medium italic max-w-[85%] [text-wrap:balance]">
         {description}
       </p>
       <div className="bg-white p-5 rounded-full text-[#6d4dc8] shrink-0 shadow-[0_15px_30px_rgba(109,77,200,0.2)] border border-white group-hover:scale-110 transition-transform">

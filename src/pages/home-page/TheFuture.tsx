@@ -30,8 +30,8 @@ const Future = () => {
       colSpan: "col-span-12 md:col-span-4" 
     },
     { 
-      label: "3x", 
-      sublabel: "More Detailed Feedback", 
+      label: "More Detailed Feedback", 
+      value: "3x", 
       isSpecial: true, 
       colSpan: "col-span-12 md:col-span-4", 
       variant: "center-gradient" 

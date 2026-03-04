@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSection from "./HeroSection"; 
 import MetricsPage from "./MetricsPage"; 
 import Features from "./Features"; 
+import TheFuture from "./TheFuture";
 import CTA from "./CTA";
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <Features /> 
 
       {/* 3. The Future of Fair, Fast, and Trusted Education. */}
+      <TheFuture />
 
       {/* 4. The Call to Action */}
       <CTA />

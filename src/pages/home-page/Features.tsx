@@ -8,7 +8,9 @@ const Features = () => {
         
         <div className="text-center mb-16">
           <h2 className="font-['DentonCondensed'] text-[80px] md:text-[100px] leading-tight text-slate-900 font-normal">
-            The <span className="text-[#6d4dc8]">4-Phase</span> Solution
+            The <span className="bg-gradient-to-r from-[#6d4dc8] to-[#818cf8] bg-clip-text text-transparent">
+              4-Phase
+            </span> Solution
           </h2>
           <p className="text-lg md:text-xl text-slate-800 font-medium mt-2 max-w-2xl mx-auto leading-tight">
             A complete ecosystem that transforms the educational journey from integrity to employment.
