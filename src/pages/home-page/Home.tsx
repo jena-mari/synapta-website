@@ -3,7 +3,7 @@ import HeroSection from "./HeroSection";
 import MetricsPage from "./MetricsPage"; 
 import Features from "./Features"; 
 import TheFuture from "./TheFuture";
-import CTA from "./CTA";
+import Choose from "./Choose";
 
 const Home = () => {
   return (
@@ -20,7 +20,7 @@ const Home = () => {
       <TheFuture />
 
       {/* 4. The Call to Action */}
-      <CTA />
+      <Choose />
     </div>
   );
 };

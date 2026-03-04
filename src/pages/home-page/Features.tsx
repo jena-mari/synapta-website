@@ -7,8 +7,8 @@ const Features = () => {
       <div className="container max-w-[1000px] mx-auto relative z-10">
         
         <div className="text-center mb-16">
-          <h2 className="font-['DentonCondensed'] text-[80px] md:text-[100px] leading-tight text-slate-900 font-normal">
-            The <span className="bg-gradient-to-r from-[#6d4dc8] to-[#818cf8] bg-clip-text text-transparent">
+          <h2 className="font-['DentonCondensed'] text-[80px] md:text-[100px] leading-[0.85] tracking-tighter text-slate-900 font-normal">
+            The <span className="bg-gradient-to-r from-[#6d4dc8] to-[#818cf8] bg-clip-text text-transparent italic inline-block">
               4-Phase
             </span> Solution
           </h2>

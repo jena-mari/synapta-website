@@ -8,8 +8,8 @@ const MetricsPage = () => {
       
       <div className="container max-w-[1200px] mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="font-['DentonCondensed'] text-[80px] md:text-[100px] leading-[0.85] tracking-tighter text-slate-900 font-normal">
-          The <span className="bg-gradient-to-r from-[#8e76d9] to-[#6366f1] bg-clip-text text-transparent italic inline-block">
+          <h2 className="font-['DentonCondensed'] text-[80px] md:text-[100px] leading-[0.95] tracking-tighter text-slate-900 font-normal py-4">
+          The <span className="bg-gradient-to-r from-[#8e76d9] to-[#6366f1] bg-clip-text text-transparent italic inline-block py-2">
             Problem
           </span>
         </h2>

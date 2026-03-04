@@ -84,10 +84,10 @@ const Future = () => {
 
       <div className="container max-w-[1100px] mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="font-['DentonCondensed'] text-[75px] md:text-[95px] leading-[0.85] tracking-tighter text-slate-900">
+          <h2 className="font-['DentonCondensed'] text-[75px] md:text-[95px] leading-[0.95] tracking-tighter text-slate-900 font-normal py-4">
             The Future of <span className="text-[#b7a4ed] italic">Fair, Fast,</span> and <br />
-            <span className="bg-gradient-to-r from-[#6d4dc8] to-[#3c59cf] bg-clip-text text-transparent italic inline-block">
-                Trusted Education.
+            <span className="bg-gradient-to-r from-[#6d4dc8] to-[#3c59cf] bg-clip-text text-transparent italic inline-block py-2">
+              Trusted Education.
             </span>
           </h2>
           <p className="text-lg md:text-xl text-slate-700 font-medium mt-8 max-w-2xl mx-auto leading-tight">

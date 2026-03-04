@@ -47,20 +47,21 @@ const Choose = () => {
   const prevSlide = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-24 bg-white overflow-hidden font-['Urbanist']">
       <div className="container mx-auto px-4">
-        {/* Header */}
+        
+        {/* Header - Fixed Clipping & Gradient */}
         <div className="text-center mb-20">
-          <h2 className="font-['DentonCondensed'] text-[75px] md:text-[95px] leading-[0.85] tracking-tighter text-slate-900 font-normal">
-            Why Choose <span className="bg-gradient-to-r from-[#b7a4ed] to-[#8e76d9] bg-clip-text text-transparent italic inline-block">Synapta?</span>
+          <h2 className="font-['DentonCondensed'] text-[75px] md:text-[95px] leading-[0.95] tracking-tighter text-slate-900 font-normal py-4">
+            Why Choose <span className="bg-gradient-to-r from-[#b7a4ed] to-[#8e76d9] bg-clip-text text-transparent italic inline-block py-2">Synapta?</span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-700 font-medium mt-6 max-w-2xl mx-auto leading-tight">
+          <p className="text-lg md:text-xl text-slate-600 font-medium mt-4 max-w-2xl mx-auto leading-tight tracking-tight">
             We collaborate with leading, trusted organisations to bring you best-in-class products and learning solutions.
           </p>
         </div>
 
         {/* Carousel Logic */}
-        <div className="relative flex items-center justify-center max-w-6xl mx-auto h-[600px]">
+        <div className="relative flex items-center justify-center max-w-6xl mx-auto h-[620px]">
           {testimonials.map((item, index) => {
             const isActive = index === activeIndex;
             const isPrev = index === (activeIndex - 1 + testimonials.length) % testimonials.length;
@@ -72,50 +73,61 @@ const Choose = () => {
               <div
                 key={index}
                 className={`absolute transition-all duration-700 ease-in-out transform w-full max-w-[520px] 
-                  ${isActive ? 'z-30 opacity-100 scale-100' : 'z-10 opacity-30 scale-90 blur-[2px]'}
-                  ${isPrev ? '-translate-x-[70%] lg:-translate-x-[90%]' : ''}
-                  ${isNext ? 'translate-x-[70%] lg:translate-x-[90%]' : ''}
+                  ${isActive ? 'z-30 opacity-100 scale-100' : 'z-10 opacity-30 scale-90 blur-[4px]'}
+                  ${isPrev ? '-translate-x-[75%] lg:-translate-x-[95%]' : ''}
+                  ${isNext ? 'translate-x-[75%] lg:translate-x-[95%]' : ''}
                   ${isActive ? 'translate-x-0' : ''}
                 `}
               >
-                <div className={`bg-white rounded-[40px] p-8 border-[3px] shadow-2xl h-[550px] flex flex-col justify-between
+                {/* Card with subtle glass gradient border */}
+                <div className={`bg-gradient-to-b from-white to-slate-50/50 rounded-[45px] p-10 border-[3px] shadow-[0_30px_70px_rgba(109,77,200,0.12)] h-[580px] flex flex-col justify-between transition-colors
                   ${isActive ? 'border-[#b7a4ed]/40' : 'border-slate-100'}
                 `}>
                   
                   {/* Media Section */}
-                  <div className="rounded-[25px] overflow-hidden h-60 bg-slate-100 relative group">
+                  <div className="rounded-[30px] overflow-hidden h-64 bg-slate-100 relative group shadow-inner">
                     {item.type === 'video' ? (
-                      <div className="w-full h-full flex items-center justify-center bg-slate-200">
-                        {/* Video Thumbnail/Icon */}
-                        <div className="w-16 h-16 bg-[#6d4dc8] rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
-                          <Play fill="currentColor" size={24} className="ml-1" />
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300">
+                        <div className="w-20 h-20 bg-gradient-to-tr from-[#6d4dc8] to-[#8e76d9] rounded-full flex items-center justify-center text-white shadow-[0_10px_30px_rgba(109,77,200,0.4)] group-hover:scale-110 transition-transform cursor-pointer">
+                          <Play fill="currentColor" size={28} className="ml-1" />
                         </div>
-                        <p className="absolute bottom-4 left-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Interview.MOV</p>
+                        <div className="absolute bottom-5 left-6 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full">
+                           <p className="text-[10px] font-bold text-slate-700 uppercase tracking-widest">Interview.MOV</p>
+                        </div>
                       </div>
                     ) : (
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                      <img src={item.image} alt={item.name} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" />
                     )}
                   </div>
 
                   {/* Text Content */}
-                  <div className="text-left mt-6 flex-grow">
-                    {item.type === 'video' && <h3 className="text-2xl font-bold text-slate-900 mb-2">{item.title}</h3>}
-                    <p className={`text-slate-900 font-bold leading-snug mb-6 ${item.type === 'video' ? 'text-sm' : 'text-base'}`}>
+                  <div className="text-left mt-8 flex-grow">
+                    {item.type === 'video' && (
+                      <h3 className="text-2xl font-extrabold text-slate-900 mb-3 tracking-tight">
+                        {item.title}
+                      </h3>
+                    )}
+                    <p className={`text-slate-800 font-semibold leading-relaxed tracking-tight ${item.type === 'video' ? 'text-sm opacity-80' : 'text-[17px]'}`}>
                       "{item.quote}"
                     </p>
                   </div>
 
                   {/* Footer Info */}
-                  <div className="flex justify-between items-end border-t border-slate-50 pt-4">
-                    <div>
-                      <h4 className="text-[#6d4dc8] font-bold text-lg leading-none">
+                  <div className="flex justify-between items-end border-t border-slate-100 pt-6">
+                    <div className="space-y-1">
+                      <h4 className="bg-gradient-to-r from-[#6d4dc8] to-[#3c59cf] bg-clip-text text-transparent font-bold text-xl leading-none">
                         {item.name}
                       </h4>
-                      <p className="text-slate-600 font-semibold text-sm mt-1">{item.role}</p>
-                      {item.subtext && <p className="text-slate-400 text-[10px] mt-1 leading-tight">{item.subtext}</p>}
+                      <p className="text-slate-600 font-bold text-sm">{item.role}</p>
+                      {item.subtext && <p className="text-slate-400 text-[11px] font-medium leading-tight max-w-[200px]">{item.subtext}</p>}
                     </div>
-                    <button className="bg-[#b7a4ed] text-white px-5 py-2 rounded-full text-[10px] font-bold hover:bg-[#6d4dc8] transition-colors">
-                      Read More
+                    
+                    <button className="relative group overflow-hidden bg-gradient-to-r from-[#b7a4ed] to-[#8e76d9] p-[1.5px] rounded-full shadow-lg">
+                      <div className="bg-white group-hover:bg-transparent transition-colors px-6 py-2.5 rounded-full">
+                        <span className="bg-gradient-to-r from-[#6d4dc8] to-[#8e76d9] bg-clip-text text-transparent group-hover:text-white font-bold text-[11px] uppercase tracking-wider transition-colors">
+                          Read More
+                        </span>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -124,24 +136,28 @@ const Choose = () => {
           })}
         </div>
 
-        {/* Controls */}
-        <div className="flex items-center justify-center gap-8 mt-12">
-          <button onClick={prevSlide} className="text-slate-300 hover:text-[#6d4dc8] transition-all hover:scale-125">
-            <ChevronLeft size={44} strokeWidth={1.5} />
+        {/* Controls - Sleek Navigation */}
+        <div className="flex items-center justify-center gap-10 mt-12">
+          <button onClick={prevSlide} className="p-2 text-slate-300 hover:text-[#6d4dc8] transition-all hover:translate-x-[-4px]">
+            <ChevronLeft size={48} strokeWidth={1} />
           </button>
           
-          <div className="flex gap-3">
+          <div className="flex items-center gap-4">
             {testimonials.map((_, i) => (
               <button 
                 key={i}
                 onClick={() => setActiveIndex(i)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-[#6d4dc8] w-8' : 'bg-slate-200'}`}
+                className={`transition-all duration-500 rounded-full ${
+                  i === activeIndex 
+                  ? 'w-10 h-2.5 bg-gradient-to-r from-[#6d4dc8] to-[#b7a4ed] shadow-sm' 
+                  : 'w-2.5 h-2.5 bg-slate-200 hover:bg-slate-300'
+                }`}
               />
             ))}
           </div>
 
-          <button onClick={nextSlide} className="text-slate-300 hover:text-[#6d4dc8] transition-all hover:scale-125">
-            <ChevronRight size={44} strokeWidth={1.5} />
+          <button onClick={nextSlide} className="p-2 text-slate-300 hover:text-[#6d4dc8] transition-all hover:translate-x-[4px]">
+            <ChevronRight size={48} strokeWidth={1} />
           </button>
         </div>
       </div>
