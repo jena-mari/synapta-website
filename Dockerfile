@@ -1,19 +1,19 @@
-# Stage 1: Build
-FROM node:18-alpine as build
+# STAGE 1: Build
+FROM node:18-alpine AS build
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
 
-# 1. Clean install
-# 2. Force install the specific Linux binary needed for Alpine/Railway
-RUN npm ci && npm install @rollup/rollup-linux-x64-musl
+# Force the correct native bindings for Alpine/Railway
+RUN npm install --platform=linuxmusl && npm install @rollup/rollup-linux-x64-musl
 
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve
-FROM nginx:stable-alpine
+# STAGE 2: Serve
+FROM nginx:alpine
+# Fixing the syntax: 'COPY' and 'AS' now match 'FROM'
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
