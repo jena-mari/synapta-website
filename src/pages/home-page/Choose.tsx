@@ -50,12 +50,12 @@ const Choose = () => {
     <section className="py-24 bg-white overflow-hidden font-['Urbanist']">
       <div className="container mx-auto px-4">
         
-        {/* Header - Fixed Clipping & Gradient */}
+        {/* Header Section */}
         <div className="text-center mb-20">
-          <h2 className="font-['DentonCondensed'] text-[75px] md:text-[95px] leading-[0.95] tracking-tighter text-slate-900 font-normal py-4">
+          <h2 className="font-['DentonCondensed'] text-[75px] md:text-[95px] leading-[0.95] tracking-tighter text-slate-900 font-normal py-4 opacity-100">
             Why Choose <span className="bg-gradient-to-r from-[#b7a4ed] to-[#8e76d9] bg-clip-text text-transparent italic inline-block py-2">Synapta?</span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 font-medium mt-4 max-w-2xl mx-auto leading-tight tracking-tight">
+          <p className="text-lg md:text-xl text-slate-800 font-semibold mt-4 max-w-2xl mx-auto leading-tight tracking-tight opacity-100">
             We collaborate with leading, trusted organisations to bring you best-in-class products and learning solutions.
           </p>
         </div>
@@ -84,19 +84,28 @@ const Choose = () => {
                   ${isActive ? 'border-[#b7a4ed]/40' : 'border-slate-100'}
                 `}>
                   
-                  {/* Media Section */}
+                  {/* Media Section inside the map function */}
                   <div className="rounded-[30px] overflow-hidden h-64 bg-slate-100 relative group shadow-inner">
                     {item.type === 'video' ? (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300">
-                        <div className="w-20 h-20 bg-gradient-to-tr from-[#6d4dc8] to-[#8e76d9] rounded-full flex items-center justify-center text-white shadow-[0_10px_30px_rgba(109,77,200,0.4)] group-hover:scale-110 transition-transform cursor-pointer">
-                          <Play fill="currentColor" size={28} className="ml-1" />
-                        </div>
-                        <div className="absolute bottom-5 left-6 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full">
-                           <p className="text-[10px] font-bold text-slate-700 uppercase tracking-widest">Interview.MOV</p>
+                      <div className="w-full h-full relative">
+                        {/* The actual Video Tag */}
+                        <video 
+                          src={item.src} 
+                          className="w-full h-full object-cover"
+                          autoPlay 
+                          muted 
+                          loop 
+                          playsInline
+                        />
+                        {/* Overlay for the play button look */}
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/0 transition-colors">
+                          <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/30 shadow-xl">
+                            <Play fill="currentColor" size={24} className="ml-1" />
+                          </div>
                         </div>
                       </div>
                     ) : (
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" />
+                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                     )}
                   </div>
 
