@@ -5,9 +5,9 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# CRUCIAL: Delete any local lockfile and node_modules that might have been copied
-# Then install fresh, architecture-specific binaries for Linux Alpine
-RUN rm -rf node_modules package-lock.json && npm install
+# 1. Clean install
+# 2. Force install the specific Linux binary needed for Alpine/Railway
+RUN npm ci && npm install @rollup/rollup-linux-x64-musl
 
 COPY . .
 RUN npm run build
