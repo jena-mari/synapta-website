@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* ------------------------- */
+/* 1: LAYERS */
+/* ------------------------- */
+
 @layer base {
   body {
     @apply bg-white text-slate-900 antialiased overflow-x-hidden;
@@ -10,4 +14,50 @@
   .bg-glow {
     @apply absolute -z-10 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20;
   }
+}
+
+/* ------------------------- */
+/* 2: FONTS */
+/* ------------------------- */
+
+/* Title Font: Denton Condensed */
+@font-face {
+  font-family: 'DentonCondensed';
+  src: url('/assets/DentonCondensedTest-Medium.otf') format('opentype');
+}
+
+/* Body Font: Urbanist */
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/assets/Urbanist-VariableFont_wght.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ------------------------- */
+/* 3: BACKGROUND */
+/* ------------------------- */
+
+/* Background Wavy Lines (Hero Section) */
+.hero-lines {
+  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='400' viewBox='0 0 1440 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 200C300 150 600 250 900 200C1200 150 1440 200 1440 200' stroke='%236a4ab6' stroke-opacity='0.1' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hero-mesh {
+  background: 
+    radial-gradient(at 50% 0%, rgba(216, 180, 254, 0.15) 0%, transparent 50%),
+    radial-gradient(at 100% 50%, rgba(50, 82, 193, 0.05) 0%, transparent 50%);
+  position: relative;
+}
+
+.hero-mesh::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,500 C200,400 300,600 500,500 C700,400 800,600 1000,500' stroke='%236a4ab6' stroke-opacity='0.1' fill='transparent'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: -1;
 }
