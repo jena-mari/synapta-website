@@ -8,11 +8,11 @@ const MetricsPage = () => {
       
       <div className="container max-w-[1200px] mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="font-['DentonCondensed'] text-[80px] md:text-[100px] leading-tight text-slate-900 pt-8 font-normal">
-            The <span className="bg-gradient-to-r from-[#8e76d9] to-[#6366f1] bg-clip-text text-transparent">
-              Problem
-            </span>
-          </h2>
+          <h2 className="font-['DentonCondensed'] text-[80px] md:text-[100px] leading-[0.85] tracking-tighter text-slate-900 font-normal">
+          The <span className="bg-gradient-to-r from-[#8e76d9] to-[#6366f1] bg-clip-text text-transparent italic inline-block">
+            Problem
+          </span>
+        </h2>
           <p className="text-lg md:text-xl text-slate-800 font-semibold mt-1">
             Education is built for the top 10%. <br />
             <span className="text-[#6d4dc8]">The rest are overwhelmed.</span>
@@ -66,7 +66,7 @@ const MetricCard = ({ stat, tag, description, icon }: { stat: string, tag: strin
         {stat}
       </h3>
       {/* Constraints added to the Tag Pill */}
-      <div className="bg-gradient-to-r from-[#8e76d9] to-[#3c59cf] px-5 py-2.5 rounded-full text-white text-[10px] uppercase tracking-wider font-bold shadow-md max-w-[200px] text-center leading-tight">
+      <div className="bg-gradient-to-r from-[#8e76d9] to-[#3c59cf] px-5 py-2.5 rounded-full text-white text-[10px] tracking-wider font-bold shadow-md max-w-[200px] text-center leading-tight">
         {tag}
       </div>
     </div>

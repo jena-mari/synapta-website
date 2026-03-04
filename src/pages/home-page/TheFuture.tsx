@@ -9,8 +9,6 @@ const StatPill = ({ label, value, sublabel, isSpecial, colSpan, variant }: any) 
       case 'blue-stripes': return "/assets/blue-stripes.png";
       case 'center-gradient': return "/assets/center-gradient.png";
       case 'soft-glass': return "/assets/soft-glass.png";
-      case 'bottom-left': return "/assets/bottom-left.png";
-      case 'bottom-right': return "/assets/bottom-right.png";
       default: return null;
     }
   };
@@ -75,8 +73,8 @@ const Future = () => {
     { label: "Reduction in\nGrading Time", value: "<75%", colSpan: "col-span-12 md:col-span-4" },
     { label: "Feedback Turnaround\nImproves concept\nretention by +40%", value: "<24-Hr", colSpan: "col-span-12 md:col-span-5" },
     { label: "Saved Per Script\nProcessed", value: "$12–$18", colSpan: "col-span-12 md:col-span-7", variant: "soft-glass" },
-    { label: "Decreased\nLearning Time", value: "40%", colSpan: "col-span-12 md:col-span-6", variant: "bottom-left" },
-    { label: "Increased Learning\nEfficiency", value: "3x", colSpan: "col-span-12 md:col-span-6", variant: "bottom-right" },
+    { label: "Decreased\nLearning Time", value: "40%", colSpan: "col-span-12 md:col-span-6" },
+    { label: "Increased Learning\nEfficiency", value: "3x", colSpan: "col-span-12 md:col-span-6" },
   ];
 
   return (
