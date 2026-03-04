@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TheFuture = () => {
+const BentoGridSec = () => {
   const stats = [
     { label: "Industry-leading identification of AI-generated vs human-written text (vs ~80% industry average)", value: "", colSpan: "col-span-12 md:col-span-7", bg: "bg-gradient-to-br from-purple-100/30 to-transparent" },
     { label: "False Positive Accuracy", value: "<0.2%", colSpan: "col-span-12 md:col-span-5" },
@@ -60,4 +60,4 @@ const TheFuture = () => {
   );
 };
 
-export default TheFuture;
+export default BentoGridSec;
