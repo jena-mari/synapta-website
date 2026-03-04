@@ -1,31 +1,18 @@
-# --- Stage 1: Build Stage ---
-FROM node:20-alpine AS build
+# Stage 1: Build
+FROM node:18-alpine as build
 WORKDIR /app
-
-# 1. Install dependencies (separated to use Docker cache)
 COPY package*.json ./
 RUN npm install
-
-# 2. Copy the rest of your code
 COPY . .
-
-# 3. Build the project (This creates the /app/dist folder)
 RUN npm run build
 
-# 4. Debug check (Optional: verify dist exists during build)
-RUN ls -la /app/dist
-
-
-# --- Stage 2: Runtime Stage ---
+# Stage 2: Serve
 FROM nginx:stable-alpine
-
-# 1. Copy your custom Nginx config
+COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# 2. Copy the build output from the "build" stage to Nginx
-# Note: This MUST come after Stage 1 finishes the build
-COPY --from=build /app/dist /usr/share/nginx/html
-
+# Railway and Nginx standard port
 EXPOSE 80
 
+# CRUCIAL: This keeps the container running in the foreground
 CMD ["nginx", "-g", "daemon off;"]
