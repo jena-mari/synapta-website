@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSection from "./HeroSection"; 
 import MetricsPage from "./MetricsPage"; 
 import Features from "./Features"; 
+import BentoGridSec from "./BentoGridSec"; 
 import CTA from "./CTA";
 
 const Home = () => {
@@ -14,8 +15,9 @@ const Home = () => {
       
       {/* 2. The Solution Phases (Identify, Analyze, etc.) */}
       <Features /> 
-      
-      {/* 3. Metrics for the Future Section */}
+
+      {/* 3. The Future of Fair, Fast, and Trusted Education. */}
+      <BentoGridSec /> 
 
       {/* 4. The Call to Action */}
       <CTA />
