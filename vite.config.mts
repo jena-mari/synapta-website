@@ -9,11 +9,15 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    outDir: 'dist', 
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
       "@components": path.resolve(__dirname, "./src/app/components"),
       "@pages": path.resolve(__dirname, "./src/pages"),
     },
+    
   },
 });
