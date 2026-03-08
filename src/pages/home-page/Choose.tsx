@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Play, Loader2 } from 'lucide-react';
 const testimonials = [
   {
     type: 'video',
-    src: "/assets/Interview.MOV", 
+    src: "https://youtu.be/skKuxzNQAMA",
     title: "What is Synapta?",
     quote: "A unified integrity + marking + retention + hiring passport platform.",
     name: "Aleksa Cvetkovic",
