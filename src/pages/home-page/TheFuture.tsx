@@ -1,7 +1,6 @@
 import React from 'react';
 
 const StatPill = ({ label, value, sublabel, isSpecial, colSpan, variant }: any) => {
-  // Map the variants to your actual PNG file paths
   const getBackgroundImage = () => {
     switch(variant) {
       case 'purple-glow': return "/assets/purple-glow.png";

@@ -1,27 +1,29 @@
-# STAGE 1: Build React app
-FROM node:18-bullseye AS build
+# STAGE 1: Build
+# Upgrade to Node 20 to satisfy @tailwindcss/oxide requirements
+FROM node:20-alpine AS build
 WORKDIR /app
 
-# Copy package files first to leverage caching
-COPY package.json package-lock.json ./
+# Only copy package.json (still no lockfile to ensure a clean install)
+COPY package.json ./
 
-# Install dependencies
-RUN npm ci
+# Install dependencies. We REMOVE the forced x64-musl command 
+# so npm detects if you are on ARM64 (Apple Silicon) or x64 (Intel).
+RUN npm install
 
-# Copy the rest of the project
+# Copy the rest of the source code
 COPY . .
 
-# Build the React app (Tailwind included)
+# Run the production build
 RUN npm run build
 
-# STAGE 2: Serve with Nginx
+# STAGE 2: Serve
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy build output
+# Copy built assets from Stage 1
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copy custom nginx config if needed
+# Ensure your nginx.conf is in the same folder
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
